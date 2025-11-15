@@ -89,18 +89,19 @@ button:hover {
 
 <script>
 // Correct student data
-const correctName = "mosharaf hossain";
-const correctName = "Mosharaf Hossain";
-const correctName = "MOSHARAF HOSSAIN";
-const correctID = "065";
-const correctID = "65";
+const correctName = "mosharaf hossain";   // lowercase saved name
+const correctID = 65;  // only original number (no quotes)
 
+// Verify Function
 function verify() {
     let name = document.getElementById("username").value.toLowerCase().trim();
-    let id = document.getElementById("student_id").value.trim();
+    let idInput = document.getElementById("student_id").value.trim();
+
+    // Convert id like "065" → 65
+    let id = parseInt(idInput, 10);
 
     if (name === correctName && id === correctID) {
-        window.location.href = "index.html"; // redirect to result page
+        window.location.href = "index.html";
     } else {
         document.getElementById("error").innerHTML = "❌ No Student Found!";
     }
@@ -109,5 +110,6 @@ function verify() {
 
 </body>
 </html>
+
 
 
