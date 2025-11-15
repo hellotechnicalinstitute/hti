@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<title>Student Verification</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;900&display=swap');
+
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #ecf0f3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: poppins;
+}
+
+.container {
+  width: 350px;
+  padding: 40px;
+  border-radius: 20px;
+  background: #ecf0f3;
+  box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+  text-align: center;
+}
+
+.brand-title {
+  font-weight: 900;
+  font-size: 1.8rem;
+  color: #1DA1F2;
+  margin-top: 10px;
+}
+
+input, button {
+  width: 100%;
+  border: none;
+  outline: none;
+  margin-top: 15px;
+  box-sizing: border-box;
+}
+
+input {
+  background: #ecf0f3;
+  padding: 10px 20px;
+  height: 50px;
+  font-size: 14px;
+  border-radius: 50px;
+  box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
+}
+
+button {
+  background: #1DA1F2;
+  height: 50px;
+  border-radius: 20px;
+  color: white;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px white;
+  transition: 0.5s;
+}
+
+button:hover {
+  box-shadow: none;
+}
+
+#error {
+  color: red;
+  margin-top: 10px;
+  font-weight: bold;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+  <div class="brand-title">HTI</div>
+  <div class="brand-title">Student Verification</div>
+
+  <input type="text" id="username" placeholder="Full Name" required>
+  <input type="text" id="student_id" placeholder="Student ID" required>
+  <button onclick="verify()">Verify</button>
+
+  <div id="error"></div>
+</div>
+
+<script>
+// Correct student data
+const correctName = "mosharaf hossain";
+const correctID = "065";
+
+function verify() {
+    let name = document.getElementById("username").value.toLowerCase().trim();
+    let id = document.getElementById("student_id").value.trim();
+
+    if (name === correctName && id === correctID) {
+        window.location.href = "index.html"; // redirect to result page
+    } else {
+        document.getElementById("error").innerHTML = "❌ No Student Found!";
+    }
+}
+</script>
+
+</body>
+</html>
